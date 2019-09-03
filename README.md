@@ -102,11 +102,11 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
 **前提是项目环境已经配置好，项目包已(install)到本地仓库或发布(deploy)到私服仓库，[查看环境配置→](https://gitee.com/liuyadu/open-cloud/wikis/pages?sort_id=1337070&doc_id=256893)**
 
 1. 新建父工程maven项目
-    父工程groupId:`com.公司名`
-    父工程artifactId:自己的项目名
+   - 父工程groupId:`com.公司名`
+   - 父工程artifactId:自己的项目名
 2. 在父工程下新建子工程客户端和服务端
-   子工程客户端artifactId:`项目名-client`
-   子工程服务端artifactId:`项目名-server`
+   - 子工程客户端artifactId:`项目名-client`
+   - 子工程服务端artifactId:`项目名-server`
 3. 父工程pom.xml
 ```
 <?xml version="1.0" encoding="UTF-8"?>
