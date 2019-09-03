@@ -99,7 +99,7 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
 ---
 ## Open Cloud快速上手
 **[参考资料](https://gitee.com/liuyadu/open-cloud/wikis/pages)**
-**前提是项目环境已经配置好，项目包已打包到本地仓库，[查看环境配置→](https://gitee.com/liuyadu/open-cloud/wikis/pages?sort_id=1337070&doc_id=256893)**
+**前提是项目环境已经配置好，项目包已(install)到本地仓库或发布(deploy)到私服仓库，[查看环境配置→](https://gitee.com/liuyadu/open-cloud/wikis/pages?sort_id=1337070&doc_id=256893)**
 
 1. 新建父工程maven项目
     父工程groupId:`com.公司名`
