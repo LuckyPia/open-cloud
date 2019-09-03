@@ -129,10 +129,9 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
         <repository>
             <id>maven-releases</id>
             <name>nexus release repo</name>
-            <url>http://IP地址:端口/repository/maven-public/</url>
+            <url>http://192.168.6.22:8081/repository/maven-public/</url>
         </repository>
     </repositories>
-
     <!--属性配置-->
     <properties>
         <java.version>1.8</java.version>
@@ -179,13 +178,13 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
                 <!--当前环境-->
                 <profile.name>public</profile.name>
                 <!--Nacos配置中心地址-->
-                <config.server-addr>127.0.0.1:8848</config.server-addr>
+                <config.server-addr>192.168.6.22:8848</config.server-addr>
                 <!--Nacos配置中心命名空间,用于支持多环境.这里必须使用ID，不能使用名称,默认为空-->
                 <config.namespace></config.namespace>
                 <!--Nacos服务发现地址-->
-                <discovery.server-addr>127.0.0.1:8848</discovery.server-addr>
+                <discovery.server-addr>192.168.6.22:8848</discovery.server-addr>
                 <!--Nacos服务注册IP前缀配置-->
-                <inetutils.preferred-networks>127.0.0</inetutils.preferred-networks>
+                <inetutils.preferred-networks>192.168.6</inetutils.preferred-networks>
             </properties>
         </profile>
         <!-- 开发 -->
@@ -195,13 +194,13 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
                 <!--当前环境-->
                 <profile.name>dev</profile.name>
                 <!--Nacos配置中心地址-->
-                <config.server-addr>127.0.0.1:8848</config.server-addr>
+                <config.server-addr>192.168.6.22:8848</config.server-addr>
                 <!--Nacos配置中心命名空间,用于支持多环境.这里必须使用ID，不能使用名称,默认为空-->
-                <config.namespace>c0d73078-55cd-4f63-a36c-29811da8383e</config.namespace>
+                <config.namespace>c0d73078-55cd-4f63-a36c-29811da8683e</config.namespace>
                 <!--Nacos服务发现地址-->
-                <discovery.server-addr>127.0.0.1:8848</discovery.server-addr>
+                <discovery.server-addr>192.168.6.22:8848</discovery.server-addr>
                 <!--Nacos服务注册IP前缀配置-->
-                <inetutils.preferred-networks>127.0.0</inetutils.preferred-networks>
+                <inetutils.preferred-networks>192.168.6</inetutils.preferred-networks>
             </properties>
         </profile>
         <!-- 测试 -->
@@ -211,13 +210,13 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
                 <!--当前环境-->
                 <profile.name>test</profile.name>
                 <!--Nacos配置中心地址-->
-                <config.server-addr>127.0.0.1</config.server-addr>
+                <config.server-addr>192.168.6.22:8848</config.server-addr>
                 <!--Nacos配置中心命名空间,用于支持多环境.这里必须使用ID，不能使用名称,默认为空-->
-                <config.namespace>7d58d1a0-4b5c-4e68-ae40-1bf34376442a</config.namespace>
+                <config.namespace>7d58d1a0-4b5c-4e68-ae40-1bf34376446a</config.namespace>
                 <!--Nacos服务发现地址-->
-                <discovery.server-addr>127.0.0.1</discovery.server-addr>
+                <discovery.server-addr>192.168.6.22:8848</discovery.server-addr>
                 <!--Nacos服务注册IP前缀配置-->
-                <inetutils.preferred-networks>127.0.0</inetutils.preferred-networks>
+                <inetutils.preferred-networks>192.168.6</inetutils.preferred-networks>
             </properties>
         </profile>
         <!-- 生产 -->
@@ -231,13 +230,13 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
                 <!--当前环境,生产环境为空-->
                 <profile.name>pro</profile.name>
                 <!--Nacos配置中心地址-->
-                <config.server-addr>127.0.0.1:8848</config.server-addr>
+                <config.server-addr>192.168.6.22:8848</config.server-addr>
                 <!--Nacos配置中心命名空间,用于支持多环境.这里必须使用ID，不能使用名称,默认为空-->
-                <config.namespace>ce78c4f6-0405-45ed-8b6b-483210c29951</config.namespace>
+                <config.namespace>ce78c4f6-0405-45ed-8b6b-483210c2995e</config.namespace>
                 <!--Nacos服务发现地址-->
-                <discovery.server-addr>127.0.0.1:8848</discovery.server-addr>
+                <discovery.server-addr>192.168.6.22:8848</discovery.server-addr>
                 <!--Nacos服务注册IP前缀配置-->
-                <inetutils.preferred-networks>127.0.0</inetutils.preferred-networks>
+                <inetutils.preferred-networks>192.168.6</inetutils.preferred-networks>
             </properties>
         </profile>
     </profiles>
@@ -334,7 +333,7 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
     <dependencies>
         <!-- 引入公共包,需(install)到本地仓库或发布(deploy)到私服仓库 -->
         <dependency>
-            <groupId>com.opencloud</groupId>
+            <groupId>cn.recse</groupId>
             <artifactId>open-cloud-common-core</artifactId>
             <version>${opencloud.common.version}</version>
         </dependency>
@@ -382,7 +381,7 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
     <dependencies>
         <!-- 引入公共包,需(install)到本地仓库或发布(deploy)到私服仓库 -->
         <dependency>
-            <groupId>com.opencloud</groupId>
+            <groupId>cn.recse</groupId>
             <artifactId>open-cloud-common-starter</artifactId>
             <version>3.0.0-SNAPSHOT</version>
         </dependency>
