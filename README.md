@@ -576,8 +576,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 **微服务调用**
 接口调用方式分为：
 
-外部调用 - 通过网关统一入口调用,通过oauth2协议获取access_token,统一验证调用接口权限,验证参数签名。
-内部调用 - fegin+rabbion方式,负载到目标服务,由微服务自身验证权限,无需验证参数签名。
+- 外部调用 - 通过网关统一入口调用,通过oauth2协议获取access_token,统一验证调用接口权限,验证参数签名。
+- 内部调用 - fegin+rabbion方式,负载到目标服务,由微服务自身验证权限,无需验证参数签名。
 1. 客户端创建资源服务fegin接口 ITestClient.interface
 ```
 public interface ITestClient{
