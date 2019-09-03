@@ -55,16 +55,16 @@
 - 服务挂了，怎么办
 
 **1. [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix)**
-API网关：`Zuul`
-服务注册与发现：`Eureka`
-服务通信：`Feign -> Http Client -> HTTP方式，同步并阻塞`
-熔断机制：`Hystrix`
+- API网关：`Zuul`
+- 服务注册与发现：`Eureka`
+- 服务通信：`Feign -> Http Client -> HTTP方式，同步并阻塞`
+- 熔断机制：`Hystrix`
 
 **2. [Apache Dubbo Zookeeper](http://zookeeper.apache.org/)**
-服务通信：`Dubbo -> 高性能Java RPC通信框架` 
-服务注册与发现：`Zookeeper`
-API网关：没有，找第三方
-熔断机制：没有，找第三方
+- 服务通信：`Dubbo -> 高性能Java RPC通信框架` 
+- 服务注册与发现：`Zookeeper`
+- API网关：没有，找第三方
+- 熔断机制：没有，找第三方
 **注：这里指的是Dubbo 2.x版本**
 
 **3. [Spring Cloud Alibaba](https://spring.io/blog/2018/10/30/spring-cloud-for-alibaba-0-2-0-released)**
