@@ -445,7 +445,7 @@ spring.datasource.type=com.zaxxer.hikari.HikariDataSource
 #spring.datasource.url=jdbc:oracle:thin:@localhost:1521:open-platform
 ```
 
-7. 在服务端下创建bootstrap.yml
+7. 在服务端下创建bootstrap.yml（这里的`项目名.properties`需与Nacos上的`Data ID`一致）
 ```
 server:
   port: 8100
