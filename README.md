@@ -430,7 +430,7 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
 </project>
 ```
 
-6. 在Nacos对应环境上添加自己的配置文件
+6. 在Nacos对应环境上添加自己的配置文件(Nacos地址:`192.168.6.22:8848/nacos`)
 Data Id:`项目名.properties`
 ```
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
@@ -621,7 +621,7 @@ public interface TestServiceClient extends ITestClient {
 private TestServiceClient testServiceClient;
 
 public void customer(){
-    testServiceClient.sayHi("你还啊");
+    testServiceClient.sayHi("你好啊");
 }
 ```
 
@@ -634,9 +634,9 @@ public void customer(){
 
 **用Postman调试接口**
 1. Postman获取access_token
-`post:`127.0.0.1:8888/admin/login/token
-username:`admin`
-password:`123456`
+- `post:`192.168.6.22:8888/admin/login/token
+- username:`admin`
+- password:`123456`
 ![获取access_token](https://upload-images.jianshu.io/upload_images/15247235-95fc1ca0b234409c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 2. Postman设置access_token
@@ -828,12 +828,12 @@ serviceImpl
 mapper
 ```java
 // @Param一定要写
-List<BirdDto> findListPage(@Param("page") Page page, @Param("query") Bird query);
+List<ConfigDto> findListPage(@Param("page") Page page, @Param("query") Bird query);
 ```
 xml
 ```xml
 <select id="findListPage"
-            resultType="com.swstsoft.birds.client.model.dto.BirdDto">
+            resultType="com.公司名.项目名.client.model.dto.ConfigDto">
         select
         a.id as id,
         a.key_ as key,
