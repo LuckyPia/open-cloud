@@ -659,16 +659,16 @@ password:`123456`
 
 
 **代码规范**
-推荐使用插件**[MybatisCodeHelperPro](https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro)**（付费，可试用）
+推荐使用插件[MybatisCodeHelperPro](https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro)（付费，可试用7天）
 -  类与方法，均要写注释，复杂的方法需要给出步骤思路
-- entity规范
+- entity规范（不是必须）
    1. 继承`AbstractEntity`类(AbstractEntity中有createTime和updateTime)，实现`Serializable`接口
    2. 时间类型采用`Date`
    3. 实例类前要加`@ApiModel(value = "com.公司名.项目名.client.model.entity.实例名")`
-   4. 每个变量前要加@ApiModelProperty(value = "唯一主键id")
-- service接口需继承IBaseService<Config>
-- service实现需继承BaseServiceImpl<ConfigMapper, Config>，实现ConfigService接口
-- mapper需实现SuperMapper<Config>
+   4. 每个变量前要加@ApiModelProperty(value = "变量说明")
+- service接口需继承IBaseService<Config>类（不是必须）
+- service实现需继承BaseServiceImpl<ConfigMapper, Config>，实现ConfigService接口（不是必须）
+- mapper需实现SuperMapper<Config>接口（不是必须）
 
 以Config为例
 ```
@@ -717,6 +717,7 @@ public class Config extends AbstractEntity implements Serializable {
      * 删除标记(0未删1已删)
      */
     @TableField(value = "del_type")
+    @TableLogic // 逻辑删除注解
     @ApiModelProperty(value = "删除标记(0未删1已删)")
     @JsonIgnore
     private Integer delType;
