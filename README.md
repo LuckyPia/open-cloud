@@ -909,7 +909,7 @@ controller
         if (!configService.isExist(id)) {
             return ResultBody.failed().msg("所要编辑的配置不存在!请尝试刷新列表");
         }
-        config.setId(IdWorker.IdWorker.getIdStr());
+        config.setId(id);
         boolean b = configService.save(config);
         return b ? ResultBody.ok() : ResultBody.failed();
     }
@@ -930,7 +930,7 @@ controller
         return configService.removeById(id) ? ResultBody.ok() : ResultBody.failed().msg("删除失败");
     }
 ```
-   7. **批量删除数据接口**
+   7. **批量删除数据接口(有问题)**
 controller
 ```java
     @Resource
