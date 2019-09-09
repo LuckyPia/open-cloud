@@ -1312,19 +1312,19 @@ public class PageParams extends Page implements Serializable {
 修改项目pom文件，增加如下配置: 
 
 ```xml
-    <!--发布到私服: 设置 version 后，选择 maven 的 deploy 命令-->
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <name>nexus Repository RELEASES</name>
-            <url>http://192.168.6.22:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>nexus Repository SNAPSHOTS</name>
-            <url>http://192.168.6.22:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+<!--发布到私服: 设置 version 后，选择 maven 的 deploy 命令-->
+<distributionManagement>
+    <repository>
+        <id>releases</id>
+        <name>nexus Repository RELEASES</name>
+        <url>http://192.168.6.22:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>nexus Repository SNAPSHOTS</name>
+        <url>http://192.168.6.22:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
 ```
 **注意:这里的id就是之前配置的id**
 
