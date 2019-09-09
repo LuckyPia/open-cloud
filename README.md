@@ -1288,5 +1288,50 @@ public class PageParams extends Page implements Serializable {
 }
 ```
 
+## 扩展
+### Maven deploy部署jar到远程私服仓库
+**1. 配置私服账号密码**
+修改maven配置文件，在$MAVEN_HOME/conf/setting.xml中增加如下配置：
+
+```xml
+<servers>
+  <server>  
+    <id>releases</id>  
+    <username>admin</username>  
+    <password>admin123</password>  
+  </server>  
+ <server>  
+  <id>snapshots</id>  
+  <username>admin</username>  
+  <password>admin123</password>  
+  </server> 
+</servers>
+```
+
+**2. 配置远程发布到私服**
+修改项目pom文件，增加如下配置: 
+
+```xml
+    <!--发布到私服: 设置 version 后，选择 maven 的 deploy 命令-->
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>nexus Repository RELEASES</name>
+            <url>http://192.168.6.22:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>nexus Repository SNAPSHOTS</name>
+            <url>http://192.168.6.22:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+```
+**注意:这里的id就是之前配置的id**
+
+**3. 执行部署操作**
+- 方式一:直接使用`mvn deploy`命令
+- 方式二:使用IDE中的maven快捷操作，以idea为例，双击deploy即可
+
+
 [参考资料](https://www.funtl.com/zh/spring-cloud-alibaba/#%E6%9C%AC%E8%8A%82%E8%A7%86%E9%A2%91)
 
