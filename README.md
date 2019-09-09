@@ -108,7 +108,7 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
    - 子工程客户端artifactId:`项目名-client`
    - 子工程服务端artifactId:`项目名-server`
 3. 父工程pom.xml
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -312,7 +312,7 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
 ```
 
 4. 子工程客户端pom.xml
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -362,7 +362,7 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
 ```
 
 5. 子工程服务端pom.xml
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -432,7 +432,7 @@ Open Cloud又在Spring Cloud Alibaba的基础上搭建了基础微服务和基�
 
 6. 在Nacos对应环境上添加自己的配置文件(Nacos地址:`192.168.6.22:8848/nacos`)
 Data Id:`项目名.properties`
-```
+```properties
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://127.0.0.1:3306/数据库名?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
 spring.datasource.username=用户名
@@ -446,7 +446,7 @@ spring.datasource.type=com.zaxxer.hikari.HikariDataSource
 ```
 
 7. 在服务端下创建bootstrap.yml（这里的`项目名.properties`需与Nacos上的`Data ID`一致）
-```
+```yaml
 server:
   port: 8100
 spring:
@@ -498,7 +498,7 @@ opencloud:
 ```
 
 8. 在服务端下创建启动类 `项目名Application.java`
-```
+```java
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -524,7 +524,7 @@ public class 项目名Application {
 ![服务端目录结构](https://upload-images.jianshu.io/upload_images/15247235-21e50080c6b103c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 9. 在服务端下创建`ResourceServerConfiguration.java` 资源服务器安全配置
-```
+```java
 import com.opencloud.common.exception.OpenAccessDeniedHandler;
 import com.opencloud.common.exception.OpenAuthenticationEntryPoint;
 import com.opencloud.common.security.OpenHelper;
@@ -578,7 +578,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 - 外部调用 - 通过网关统一入口调用,通过oauth2协议获取access_token,统一验证调用接口权限,验证参数签名。
 - 内部调用 - fegin+rabbion方式,负载到目标服务,由微服务自身验证权限,无需验证参数签名。
 1. 客户端创建资源服务fegin接口 ITestClient.interface
-```
+```java
 public interface ITestClient{
     /**
      * 你好
@@ -592,7 +592,7 @@ public interface ITestClient{
 ```
 
 2. 服务端实现 项目名-client fegin接口
-```
+```java
 @RestController
 @Api(value = "测试", tags = "测试")
 public class TestController implements ITestClient {
@@ -608,7 +608,7 @@ public class TestController implements ITestClient {
 ```
 
 3. 服务消费者-fegin调用 在使用方项目中创建fegin使用类,继承服务提供方接口
-```
+```java
 @Component
 @FeignClient(value = "项目名-server")
 public interface TestServiceClient extends ITestClient {
@@ -671,7 +671,7 @@ public void customer(){
 - mapper需实现SuperMapper<Config>接口（不是必须）
 
 以Config为例
-```
+```java
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -738,7 +738,7 @@ public class Config extends AbstractEntity implements Serializable {
 ```
 
 ConfigDto
-```
+```java
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
@@ -990,7 +990,7 @@ serviceImpl
 
 **注意：我的`ResultBody`和`PageParams`在原来地1基础上做了一些修改**
 ResultBody
-```
+```java
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Maps;
@@ -1145,7 +1145,7 @@ public class ResultBody<T> implements Serializable {
 }
 ```
 PageParams
-```
+```java
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Maps;
 import com.opencloud.common.utils.BeanConvertUtils;
